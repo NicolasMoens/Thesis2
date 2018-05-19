@@ -1,9 +1,9 @@
 \chapter{Results}
-The first result is of course a working CAK subroutine and FLD module in mpi-AMRVAC. This is something that didn't exist before and it will open the way toward simulations of new physical regimes where radiation plays a role in the dynamics of the system. Other than writing the software, there are also some scientific results. These will be described in this chapter.
+The first result is of course a working CAK subroutine and FLD module in mpi-AMRVAC. This is something that didn't exist before and it will open the way toward simulations of new physical regimes where radiation plays a role in the dynamics of the system. In addition to   designing, writing and benchmarking the software, there are also a few first scientific results. These will be described in this chapter.
 
 \section{CAK-Theory}
 \subsection{Massive star stellar wind}
-The CAK momentum equation for a point like star, so when disregarding the finite disk correction factor, has an analytic solution. This solution will be derived below, based on CITE OWOCKI NOTES \citep{}, for comparison with the numerical models. Begin by writing down the steady state momentum equation in 1D spherical coordinates, disregarding the pressure term. The pressure gradient will be orders of magnitude smaller than the gravitational and radiative accelerations due to the low density environment. 
+The CAK momentum equation for a point like star, so when disregarding the finite disk correction factor, has an analytic solution. This solution will be derived below, based on \citep{Owocki2003}, for comparison with the numerical models. Afterwards, the corrections for finite disks will be mentioned. Begin by writing down the steady state momentum equation in 1D spherical coordinates, disregarding the pressure term. The pressure gradient will be orders of magnitude smaller than the gravitational and radiative accelerations due to the low density environment. 
 \begin{align}
 \nabla_r \left(v_r \rho v_r \right) = \rho g_{CAK} + \rho g_{e} - \rho g_{grav}
 \end{align}
@@ -11,7 +11,7 @@ Using the steady state continuity equation and the electron scattering Eddington
 \begin{align}
 v \frac{d v}{d r} = g_{CAK} + (\Gamma_e-1) \frac{G M_*}{r^2} \label{eq: CAK_mom}
 \end{align}
-Lets introduce two new variables: $x = 1- \frac{R_*}{r}$ is a dimensionless inverse radius coordinate, and $w = \frac{v^2}{v_{esc}^2}$ is the kinetic energy as ratio of the kinetic energy at effective escape velocity. The effective escape velocity is similar to the general expression for escape velocity, but corrected for electron scattering force: $v_{esc} = \sqrt{\frac{G M_* (1- \Gamma_e)}{2 R_*}}$. Using the notation $w' = \frac{dw}{dx} = \frac{dw}{dr}\frac{dr}{dx}$ and $v' = \frac{dv}{dx} = \frac{dv}{dr} \frac{dr}{dx}$, $w'$ can be written as:
+Lets introduce two new variables: $x = 1- \frac{R_*}{r}$ is a dimensionless inverse radius coordinate, and $w = \frac{v^2}{v_{esc}^2}$ is the kinetic energy as ratio of the kinetic energy at effective escape velocity. The effective escape velocity is similar to the general expression for escape velocity, but corrected for electron scattering force: $v_{esc} = \sqrt{(1- \Gamma_e) \frac{2 G M_* }{R_*}}$. Using the notation $w' = \frac{dw}{dx} = \frac{dw}{dr}\frac{dr}{dx}$ and $v' = \frac{dv}{dx} = \frac{dv}{dr} \frac{dr}{dx}$, $w'$ can be written as:
 \begin{align}
 w' = vv' \frac{r^2}{G M_* (1- \Gamma_e)}
 \end{align}
@@ -26,20 +26,29 @@ SOMETHING FISHY WITH $\frac{r^2}{R_*^2}$ HERE\\
 
 Where, if we define the constant mass loss rate $\dot{M} = 4\pi r^2 \rho(r) v(r) = c^{ste}$, C is given by:
 \begin{align}
-C = \frac{1}{1-\alpha} \left(\frac{\bar{Q}\Gamma_e}{1-\Gamma_e} \right)^{1-\alpha} \left(\frac{L_*}{\dot{M}c^2}\right)^\alpha
+C = \frac{1}{1-\alpha} \left(\frac{\bar{Q}\Gamma_e}{1-\Gamma_e} \right)^{1-\alpha} \left(\frac{L_*}{\dot{M}c^2}\right)^\alpha \label{eq: CAK_Cste}
 \end{align}
 $C$ Depends inversely on the mass loss rate $\dot{M}$, depending on the value of $C$, equation \ref{eq: CAK_w} has either zero ($C < C_{crit}$), one ($C = C_{crit}$) or two ($C = C_{crit}$) solutions. A low value for $C$ leads to a high $\dot{M}$, so the solution with the maximal mass loss rate is the single solution at $C = C_{crit}$ The critical value for $C$ occurs when the function $C w'^\alpha$ intersects function $1 + w'$ in a tangent point. This occurs at critical argument $w'_{crit} = \frac{\alpha}{1-\alpha}$ for critical $C$-value $C = \frac{\alpha^{-\alpha}}{(1-\alpha)^{1-\alpha}}$. One can now integrate over $w'_{crit}$ to obtain a velocity profile.
 \begin{align}
 w'_{crit} &= \frac{\alpha}{1-\alpha} \\
-\frac{d}{dx} \frac{v^2}{v_{esc}^2} &= \\
-\frac{dr}{dx} \frac{d}{dr} \frac{v^2}{v_{esc}^2} &= \\
-v^2 &= v_{esc}^2 \frac{\alpha}{1-\alpha} \left(1 - \frac{R_*}{r} \right) \\
 v(r) &= v_{esc} \sqrt{\frac{\alpha}{1-\alpha}} \left(1 - \frac{R_*}{r} \right)^\frac{1}{2}
 \end{align}
-Where, when $r\rightarrow\infty$, $v(\infty) \rightarrow v_{esc} \sqrt{\frac{\alpha}{1-\alpha}} = v_\infty$. This type of velocity field follows a beta velocity law ($v = v_\infty (1-R/r)^\beta$), where in this case $\beta = 0.5$. The maximal CAK mass loss rate connected to the critical value $C_{crit}$ can also be analytically determined:
+Where, when $r\rightarrow\infty$, $v(\infty) \rightarrow v_{esc} \sqrt{\frac{\alpha}{1-\alpha}} = v_\infty$. This type of velocity field follows a beta velocity law ($v = v_\infty (1-R/r)^\beta$), where in this case $\beta = 0.5$. The maximal CAK mass loss rate connected to the critical value $C_{crit}$ can also be analytically determined by solving equation \ref{eq: CAK_Cste} for $\dot{M}$:
 \begin{align}
 \dot{M}_{CAK} = \frac{L_*}{c^2} \frac{\alpha}{1-\alpha}\left(\frac{\bar{Q}\Gamma_e}{1-\Gamma_e}\right)^{\frac{1-\alpha}{\alpha}}
 \end{align}
+
+Let's now have a look at some corrections that can be made when considering a finite disk instead of a point source. Define the rescaled correction factor as $f_* = \frac{f_{fd}}{f}$ and the rescaled constant $C_* = C f$, where $f$ is the finite disk correction factor at the stellar surface. At the stellar surface, $r \rightarrow R_*$, $v \rightarrow 0$ and $dv/dr \sim v/r$, plug this in in equation \ref{eq: fin_disk_corr} gives $f_{fd}(R_*) = f \sim \frac{1}{1+\alpha}$. Equation \ref{eq: CAK_w} now rescales to:
+\begin{align}
+w' = f_* C_* (w')^\alpha - 1 
+\end{align}
+Analogous reasoning as before leads to an adjusted CAK mass loss rate $\dot{M}_{fd}$. This mass loss rate will be lower than the point source mass loss rate, because $f \sim \frac{1}{1+\alpha}  < 1$.
+\begin{align}
+\dot{M}_{fd} = \frac{\dot{M}_{fd}}{(1+\alpha)^\frac{1}{\alpha}}
+\end{align} 
+
+ADJUST PLOTS 'N' STUFF
+
 
 Now that we have testable observables (the steady state CAK mass loss rate $\dot{M}_{CAK}$ and the steady state velocity and density profiles $v(r), \rho(r)$), it is time time to run some simulations and compare the outcomes to the analytical solutions.\\
 
@@ -47,7 +56,7 @@ The CAK source term is used to model the wind of a massive O-type star. A star o
 
 \begin{table}[]
 \centering
-\caption{Top part: Parameters used in setting the initial conditions of the wind. Bottom part: Fitted parameters.}
+\caption{Top part: Parameters used in setting the initial conditions of the wind based on \citep{Sundqvist2013}. Bottom part: Fitted parameters.}
 \label{tab: CAK_res}
 \begin{tabular}{llll}
 \hline
@@ -76,9 +85,9 @@ $\dot{M}[\frac{M_\odot}{yr}]$ & $4.1 \cdot 10^{-6}$  & $(3.4 \pm 0.4)10^{-7}$&  
 
 
 
-The tricky bit in the setup of this simulation is choosing correct lower boundary conditions. The stellar wind is launched from the stellar surface and begins with a subsonic velocity. Computationally this is controlled by setting the lower boundary density $\rho_0$. If the density on the lower bound is too high, the simulation domain begins "too deep" in the stellar atmosphere, there is too much mass to be lifted away. If $\rho_0$ is too low, the simulation domain begins in the supersonic region.\\
+The tricky bit in the setup of this simulation is choosing correct lower boundary conditions. The stellar wind is launched from the stellar surface and begins with a subsonic velocity. Computationally this is controlled by setting the lower boundary density $\rho_0$. If the density on the lower bound is too high, the simulation domain begins "too deep" in the stellar atmosphere, the equations become too stiff \citep{Sundqvist2013}. If $\rho_0$ is too low, the simulation domain begins in the supersonic region.\\
 
-As initial condition, the velocity field is taken as a beta velocity law with $\beta > 0.5$, this leads to higher velocity and thus a supercritical solution. The initial density can be derived from the mass los rate: $\rho = \frac{\dot{M}_{CAK}}{4\pi r^2 v}$. The velocity profile should relax towards the critical solution where $\beta = 0.5$.\\
+As initial condition, the velocity field is taken as a beta velocity law with $\beta > 0.5$, this leads to higher velocity and thus a supercritical solution. The initial density can be derived from the mass los rate: $\rho = \frac{\dot{M}_{CAK}}{4\pi r^2 v}$. The velocity profile should relax towards the critical solution where $\beta = 0.5$ for the point source driven and $\beta = 0.8-1$ \citep{Owocki2003} for the finite disk driven wind.\\
 
 The lower boundary for the radial velocity is set according to the continuity equation $\nabla (\rho v) = 0$, meaning $v_0 = \frac{\rho_1 v_1}{\rho_0}$. Initial conditions are evolved towards an almost stable, nearly steady state, results of the simulations and their analytical counterparts are plotted in figures \ref{fig: CAK_PS_v} and \ref{fig: CAK_PS_rho}.\\
 
@@ -136,11 +145,14 @@ When accounting for the finite disk correction, the steady state velocity profil
 \label{fig: fd_factor}
 \end{figure}
 
+%Closing
+Having now succesfully implemented and benchmarked a radiative line driving module into \texttt{MPI-AMRVAC}, future work will be done in for exemple extension toward 2D and 3D simulations,  interaction of stellar winds with orbiting compact objects such as BH's, NS's or WD's (X-ray binaries) \citep{Mellah2017}.
+
 
 \section{Flux Limited Diffusion}
 The diffusion model is first tested against some analytical results, these tests will give us knowledge on how accurately we can interpret the simulations of physical phenomena. The diffusion term and advection term are both tested separately by comparison to an exact solution and the photon tiring, radiative cooling and radiative heating source terms are tested together versus a Runge-Kutta solver of a simplified problem.
 
-\subsection{Testcase 1: Advection and Diffusion}
+\subsection{Testcase 1: Advection and Diffusion}\label{section: res: diff_test}
 The advection problem and the diffusion problem, solved by the already existing Riemann solver and the new ADI solver respectively can be tested by comparing them to simplified situation where an exact analytical solution can be found. The Riemann solver is nothing new, it's just a matter of checking the correct implementation in \texttt{MPI-AMRVAC}. The problem is tested on a numerical domain with constant density, a constant velocity, a constant gas energy density and an initial radiation energy density $E_0(x,y,t)$ given by:
 \begin{align}
 E_0(x,y,t) = 2 + \sin(2 \pi x) \sin(2 \pi y)

@@ -12,115 +12,123 @@
 \citation{Proga2009}
 \citation{Kee2018}
 \citation{Nakatani2017}
+\citation{Proga2009}
 \citation{Bhandare2017}
+\citation{Vink2018}
 \citation{ISM course notes}
 \citation{Klaassen2017}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Hydrodynamics}{3}}
 \newlabel{eq: hd_rho}{{1.2}{3}}
 \newlabel{eq: hd_mom}{{1.3}{3}}
 \newlabel{eq: hd_e}{{1.4}{3}}
-\newlabel{eq: conservative}{{1.5}{3}}
 \citation{Porth2014}
 \citation{CAK1975}
+\newlabel{eq: conservative}{{1.5}{4}}
 \newlabel{gas_closing}{{1.6}{4}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.3}Radiation Hydrodynamics}{4}}
-\newlabel{eq: RTE}{{1.7}{4}}
-\newlabel{eq: E_si}{{1.13}{5}}
-\newlabel{F_si}{{1.14}{5}}
+\newlabel{eq: RTE}{{1.7}{5}}
 \citation{Mihalas1984a}
 \citation{Mihalas1984a}
-\newlabel{eq: rhd_cont}{{1.18}{6}}
-\newlabel{eq: rhd_mom}{{1.19}{6}}
-\newlabel{eq: rhd_e}{{1.20}{6}}
-\newlabel{eq: rhd_e_r}{{1.21}{6}}
-\newlabel{eq: rhd_flux}{{1.22}{6}}
+\newlabel{eq: E_si}{{1.13}{6}}
+\newlabel{F_si}{{1.14}{6}}
 \citation{CAK1975}
+\citation{Owocki2003}
+\newlabel{eq: rhd_cont}{{1.18}{7}}
+\newlabel{eq: rhd_mom}{{1.19}{7}}
+\newlabel{eq: rhd_e}{{1.20}{7}}
+\newlabel{eq: rhd_e_r}{{1.21}{7}}
+\newlabel{eq: rhd_flux}{{1.22}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.4}Sobolev and CAK-theory}{7}}
 \newlabel{section: introduction CAK}{{1.4}{7}}
-\citation{}
+\citation{Gayley1995}
+\citation{Owocki2003}
 \newlabel{g_CAK}{{1.30}{8}}
-\citation{Levermore1981}
+\citation{}
+\newlabel{eq: fin_disk_corr}{{1.32}{9}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.5}Flux Limited Diffusion}{9}}
 \newlabel{section: introduction Flux Limited Diffusion}{{1.5}{9}}
-\newlabel{eq: P=DF}{{1.33}{9}}
-\newlabel{eq: fld_closing}{{1.34}{9}}
-\newlabel{eq: fld_Pclosing}{{1.37}{9}}
+\newlabel{eq: P=DF}{{1.34}{9}}
+\citation{Levermore1981}
 \citation{Turner12001}
 \citation{Harries2015}
-\newlabel{eq: FLD_E}{{1.39}{10}}
+\newlabel{eq: fld_closing}{{1.35}{10}}
+\newlabel{eq: fld_Pclosing}{{1.38}{10}}
+\newlabel{eq: FLD_E}{{1.40}{10}}
 \citation{Porth2014}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Methodology}{11}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Methodology}{12}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}mpi-amrvac}{11}}
-\newlabel{section: methods amrvac}{{2.1}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}mpi-amrvac}{12}}
+\newlabel{section: methods amrvac}{{2.1}{12}}
 \citation{Toth1996}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}HD in mpi-AMRVAC}{12}}
-\newlabel{eq: cons form}{{2.1}{12}}
-\newlabel{eq: fin_vol_int}{{2.2}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}CAK-theory}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Flux Limited Diffusion}{13}}
-\newlabel{section: m: FLD}{{2.4}{13}}
-\newlabel{eq: RHD_op_splt}{{2.14}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}HD in mpi-AMRVAC}{13}}
+\newlabel{eq: cons form}{{2.1}{13}}
+\newlabel{eq: fin_vol_int}{{2.2}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}CAK-theory}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Flux Limited Diffusion}{14}}
+\newlabel{section: m: FLD}{{2.4}{14}}
+\newlabel{eq: RHD_op_splt}{{2.14}{15}}
 \citation{Turner12001}
 \citation{Turner12001}
 \citation{Mihalas1984a}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Elliptic vs Hyperbolic}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}ADI}{16}}
-\newlabel{section: m: ADI}{{2.4.2}{16}}
-\newlabel{eq: diffusion}{{2.21}{16}}
-\newlabel{eq: Error_control}{{2.27}{16}}
-\newlabel{fig: ADI_stencil}{{2.4.2}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Courtesy: wikipedia. This stencil portraits the working of the ADI scheme, the first half time step from $t=n$ to $t = n +\frac  {1}{2}$ depends implicitly on the cells with coordinates $(i+1,j)$, $(i,j)$ and $(i-1,j)$. The second half time step to $t = n+1$ depends implicitly on cells $(i,j+1)$, $(i,j)$ and $(i,j-1)$.}}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Elliptic vs Hyperbolic}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}ADI}{17}}
+\newlabel{section: m: ADI}{{2.4.2}{17}}
+\newlabel{eq: diffusion}{{2.21}{17}}
+\newlabel{eq: Error_control}{{2.27}{17}}
+\newlabel{fig: ADI_stencil}{{2.4.2}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Courtesy: wikipedia. This stencil portraits the working of the ADI scheme, the first half time step from $t=n$ to $t = n +\frac  {1}{2}$ depends implicitly on the cells with coordinates $(i+1,j)$, $(i,j)$ and $(i-1,j)$. The second half time step to $t = n+1$ depends implicitly on cells $(i,j+1)$, $(i,j)$ and $(i,j-1)$.}}{18}}
 \citation{Turner12001}
 \citation{Turner12001}
 \citation{Turner12001}
-\newlabel{eq: Error}{{2.39}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}pseudo-timestepping}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Bisection Implicit scheme}{20}}
-\newlabel{subsection: BIS}{{2.4.4}{20}}
-\newlabel{eq: E_src}{{2.51}{20}}
-\newlabel{eq: Poly}{{2.52}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Dimensionless problem}{20}}
+\newlabel{eq: Error}{{2.39}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}pseudo-timestepping}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Bisection Implicit scheme}{21}}
+\newlabel{subsection: BIS}{{2.4.4}{21}}
+\newlabel{eq: E_src}{{2.51}{21}}
+\newlabel{eq: Poly}{{2.52}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Dimensionless problem}{21}}
 \citation{}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}visualisation}{21}}
-\citation{}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Results}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}visualisation}{22}}
+\citation{Owocki2003}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Results}{24}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}CAK-Theory}{23}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Massive star stellar wind}{23}}
-\newlabel{eq: CAK_mom}{{3.2}{23}}
-\newlabel{eq: CAK_w}{{3.6}{24}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Top part: Parameters used in setting the initial conditions of the wind. Bottom part: Fitted parameters.}}{25}}
-\newlabel{tab: CAK_res}{{3.1}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The velocity profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{26}}
-\newlabel{fig: CAK_PS_v}{{3.1}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces The density profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{27}}
-\newlabel{fig: CAK_PS_rho}{{3.2}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The velocity profile for the finite disk corrected CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{28}}
-\newlabel{fig: CAK_fd_v}{{3.3}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces The density profile for the finite disk corrected CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{29}}
-\newlabel{fig: CAK_fd_rho}{{3.4}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces •}}{30}}
-\newlabel{fig: fd_factor}{{3.5}{30}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Flux Limited Diffusion}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Testcase 1: Advection and Diffusion}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Testcase 2: Photon Tiring, Heating and Cooling}{31}}
-\newlabel{fig: test_diffusion}{{3.2.1}{32}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces top: theoretical solution $E^{diff}$, middle: computed result $\mathaccentV {tilde}07E{E}^{diff}$ and bottom: residual $RES^{diff}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.01 for the bottom row.}}{32}}
-\newlabel{fig: test_advection}{{3.2.1}{33}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces top: theoretical solution $E^{adv}$, middle: computed result $\mathaccentV {tilde}07E{E}^{adv}$ and bottom: residual $RES^{adv}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.001 for the bottom row.}}{33}}
-\newlabel{fig: test_sourceterms}{{3.2.2}{34}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison between the implicit method (red) and explicit method (black) for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) from different initial values. The time step for the implicit method is 3 orders of magnitude larger than the time step for the explicit method.}}{34}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}CAK-Theory}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Massive star stellar wind}{24}}
+\newlabel{eq: CAK_mom}{{3.2}{24}}
+\newlabel{eq: CAK_w}{{3.6}{25}}
+\newlabel{eq: CAK_Cste}{{3.7}{25}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Top part: Parameters used in setting the initial conditions of the wind. Bottom part: Fitted parameters.}}{26}}
+\newlabel{tab: CAK_res}{{3.1}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The velocity profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{27}}
+\newlabel{fig: CAK_PS_v}{{3.1}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces The density profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{28}}
+\newlabel{fig: CAK_PS_rho}{{3.2}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The velocity profile for the finite disk corrected CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{29}}
+\newlabel{fig: CAK_fd_v}{{3.3}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Flux Limited Diffusion}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Testcase 1: Advection and Diffusion}{29}}
+\newlabel{section: res: diff_test}{{3.2.1}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces The density profile for the finite disk corrected CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{30}}
+\newlabel{fig: CAK_fd_rho}{{3.4}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces •}}{31}}
+\newlabel{fig: fd_factor}{{3.5}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Testcase 2: Photon Tiring, Heating and Cooling}{32}}
+\newlabel{fig: test_diffusion}{{3.2.1}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces top: theoretical solution $E^{diff}$, middle: computed result $\mathaccentV {tilde}07E{E}^{diff}$ and bottom: residual $RES^{diff}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.01 for the bottom row.}}{33}}
+\newlabel{fig: test_advection}{{3.2.1}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces top: theoretical solution $E^{adv}$, middle: computed result $\mathaccentV {tilde}07E{E}^{adv}$ and bottom: residual $RES^{adv}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.001 for the bottom row.}}{34}}
 \newlabel{fig: test_sourceterms}{{3.2.2}{35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison between the implicit method (orange, blue, green) and explicit method (black) for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) with different time steps for the implicit method.}}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison between the implicit method (red) and explicit method (black) for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) from different initial values. The time step for the implicit method is 3 orders of magnitude larger than the time step for the explicit method.}}{35}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Isothermal Thomson Atmosphere}{35}}
 \newlabel{section: IsoAtm}{{3.2.3}{35}}
-\newlabel{eq: opt_depth}{{3.23}{35}}
+\newlabel{fig: test_sourceterms}{{3.2.2}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison between the implicit method (orange, blue, green) and explicit method (black) for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) with different time steps for the implicit method.}}{36}}
+\newlabel{eq: opt_depth}{{3.23}{36}}
 \newlabel{eq: p_cond}{{3.25}{36}}
 \newlabel{eq: P_cond}{{3.26}{36}}
-\newlabel{eq: p_cond}{{3.2.3}{36}}
+\newlabel{eq: p_cond}{{3.2.3}{37}}
 \newlabel{eq: Gamma1}{{3.37}{37}}
 \newlabel{eq: Gamma2}{{3.38}{37}}
 \@writefile{toc}{\contentsline {subsubsection}{constant flux discrepancy}{38}}
