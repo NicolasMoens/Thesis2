@@ -1,0 +1,16 @@
+\select@language {english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Courtesy: wikipedia. This stencil portraits the working of the ADI scheme, the first half time step from $t=n$ to $t = n +\frac {1}{2}$ depends implicitly on the cells with coordinates $(i+1,j)$, $(i,j)$ and $(i-1,j)$. The second half time step to $t = n+1$ depends implicitly on cells $(i,j+1)$, $(i,j)$ and $(i,j-1)$.}}{17}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The velocity profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{26}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The density profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{27}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The velocity profile for the finite disk corrected CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{28}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The density profile for the finite disk corrected CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}}{29}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces •}}{30}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces top: theoretical solution $E^{diff}$, middle: computed result $\mathaccentV {tilde}07E{E}^{diff}$ and bottom: residual $RES^{diff}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.01 for the bottom row.}}{32}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces top: theoretical solution $E^{adv}$, middle: computed result $\mathaccentV {tilde}07E{E}^{adv}$ and bottom: residual $RES^{adv}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.001 for the bottom row.}}{33}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison between the implicit method (red) and explicit method (black) for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) from different initial values. The time step for the implicit method is 3 orders of magnitude larger than the time step for the explicit method.}}{34}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison between the implicit method (orange, blue, green) and explicit method (black) for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) with different time steps for the implicit method.}}{35}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

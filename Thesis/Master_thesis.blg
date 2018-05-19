@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Master_thesis.aux
+White space in argument---line 15 of file Master_thesis.aux
+ : \citation{ISM
+ :               course notes}
+I'm skipping whatever remains of this command
+The style file: plainnat.bst
+Database file #1: library.bib
+Repeated entry---line 213 of file library.bib
+ : @article{Turner12001
+ :                     ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "•"
+Warning--I didn't find a database entry for "CAK"
+Warning--I didn't find a database entry for ""
+Warning--empty journal in Klaassen2017
+Warning--empty journal in Nakatani2017
+Warning--empty journal in Proga2009
+You've used 12 entries,
+            2773 wiz_defined-function locations,
+            698 strings with 23455 characters,
+and the built_in function-call counts, 54099 in all, are:
+= -- 3439
+> -- 9063
+< -- 6
++ -- 3021
+- -- 3009
+* -- 6298
+:= -- 9634
+add.period$ -- 60
+call.type$ -- 12
+change.case$ -- 1039
+chr.to.int$ -- 12
+cite$ -- 27
+duplicate$ -- 239
+empty$ -- 411
+format.name$ -- 3033
+if$ -- 9878
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 12
+newline$ -- 92
+num.names$ -- 48
+pop$ -- 2046
+preamble$ -- 1
+purify$ -- 1027
+quote$ -- 0
+skip$ -- 1156
+stack$ -- 0
+substring$ -- 136
+swap$ -- 15
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 132
+warning$ -- 3
+while$ -- 45
+width$ -- 0
+write$ -- 203
+(There were 2 error messages)
