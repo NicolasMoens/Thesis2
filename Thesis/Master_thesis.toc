@@ -2,7 +2,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Astrophysical context}{1}
 \contentsline {section}{\numberline {1.2}Hydrodynamics}{3}
-\contentsline {section}{\numberline {1.3}Radiation Hydrodynamics}{4}
+\contentsline {section}{\numberline {1.3}Radiation Hydrodynamics}{5}
 \contentsline {section}{\numberline {1.4}Sobolev and CAK-theory}{7}
 \contentsline {section}{\numberline {1.5}Flux Limited Diffusion}{9}
 \contentsline {chapter}{\numberline {2}Methodology}{12}
@@ -11,22 +11,21 @@
 \contentsline {section}{\numberline {2.3}CAK-theory}{13}
 \contentsline {section}{\numberline {2.4}Flux Limited Diffusion}{14}
 \contentsline {subsection}{\numberline {2.4.1}Elliptic vs Hyperbolic}{17}
-\contentsline {subsection}{\numberline {2.4.2}ADI}{17}
-\contentsline {subsection}{\numberline {2.4.3}pseudo-timestepping}{20}
-\contentsline {subsection}{\numberline {2.4.4}Bisection Implicit scheme}{21}
+\contentsline {subsection}{\numberline {2.4.2}Alternating Direction Implicit Scheme}{17}
+\contentsline {subsection}{\numberline {2.4.3}Pseudo-Time Stepping}{20}
+\contentsline {subsection}{\numberline {2.4.4}Bisection Implicit Scheme}{21}
 \contentsline {section}{\numberline {2.5}Dimensionless problem}{21}
-\contentsline {section}{\numberline {2.6}visualisation}{22}
+\contentsline {section}{\numberline {2.6}Visualisation}{22}
 \contentsline {chapter}{\numberline {3}Results}{24}
 \contentsline {section}{\numberline {3.1}CAK-Theory}{24}
-\contentsline {subsection}{\numberline {3.1.1}Massive star stellar wind}{24}
+\contentsline {subsection}{\numberline {3.1.1}Massive Star Stellar Wind}{24}
 \contentsline {section}{\numberline {3.2}Flux Limited Diffusion}{29}
 \contentsline {subsection}{\numberline {3.2.1}Testcase 1: Advection and Diffusion}{29}
-\contentsline {subsection}{\numberline {3.2.2}Testcase 2: Photon Tiring, Heating and Cooling}{32}
-\contentsline {subsection}{\numberline {3.2.3}Isothermal Thomson Atmosphere}{35}
-\contentsline {subsubsection}{constant flux discrepancy}{38}
-\contentsline {subsection}{\numberline {3.2.4}Strange mode instabilities}{38}
-\contentsline {subsection}{\numberline {3.2.5}Non-isothermal evolution?}{38}
-\contentsline {subsubsection}{comparison to mesa structure}{38}
+\contentsline {subsection}{\numberline {3.2.2}Testcase 2: Photon Tiring, Heating and Cooling}{33}
+\contentsline {subsection}{\numberline {3.2.3}Isothermal Thomson Atmosphere}{33}
+\contentsline {subsection}{\numberline {3.2.4}Strange Mode Instabilities}{38}
+\contentsline {subsection}{\numberline {3.2.5}Non-Isothermal Evolution}{38}
+\contentsline {subsubsection}{Comparison to Mesa Structure}{38}
 \contentsline {chapter}{\numberline {4}Conclusions}{39}
 \contentsline {chapter}{\numberline {5}Future Work}{40}
 \contentsline {section}{\numberline {5.1}Alternative Implicit Schemes}{40}

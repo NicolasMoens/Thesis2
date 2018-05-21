@@ -1,61 +1,56 @@
 This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Master_thesis.aux
-White space in argument---line 15 of file Master_thesis.aux
+White space in argument---line 21 of file Master_thesis.aux
  : \citation{ISM
  :               course notes}
 I'm skipping whatever remains of this command
-The style file: plainnat.bst
+The style file: aa.bst
 Database file #1: library.bib
-Repeated entry---line 213 of file library.bib
- : @article{Turner12001
- :                     ,
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "•"
-Warning--I didn't find a database entry for "CAK"
+Warning--I didn't find a database entry for "Klaassen2017"
 Warning--I didn't find a database entry for ""
-Warning--empty journal in Klaassen2017
+Warning--empty journal in Mellah2017
 Warning--empty journal in Nakatani2017
 Warning--empty journal in Proga2009
-You've used 12 entries,
-            2773 wiz_defined-function locations,
-            698 strings with 23455 characters,
-and the built_in function-call counts, 54099 in all, are:
-= -- 3439
-> -- 9063
-< -- 6
-+ -- 3021
-- -- 3009
-* -- 6298
-:= -- 9634
-add.period$ -- 60
-call.type$ -- 12
-change.case$ -- 1039
-chr.to.int$ -- 12
-cite$ -- 27
-duplicate$ -- 239
-empty$ -- 411
-format.name$ -- 3033
-if$ -- 9878
+You've used 23 entries,
+            2947 wiz_defined-function locations,
+            802 strings with 41103 characters,
+and the built_in function-call counts, 102335 in all, are:
+= -- 6743
+> -- 18406
+< -- 12
++ -- 6131
+- -- 6108
+* -- 10623
+:= -- 19552
+add.period$ -- 23
+call.type$ -- 23
+change.case$ -- 2128
+chr.to.int$ -- 23
+cite$ -- 26
+duplicate$ -- 425
+empty$ -- 563
+format.name$ -- 6190
+if$ -- 19629
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 12
-newline$ -- 92
-num.names$ -- 48
-pop$ -- 2046
+missing$ -- 23
+newline$ -- 73
+num.names$ -- 92
+pop$ -- 2146
 preamble$ -- 1
-purify$ -- 1027
+purify$ -- 2128
 quote$ -- 0
-skip$ -- 1156
+skip$ -- 360
 stack$ -- 0
-substring$ -- 136
-swap$ -- 15
+substring$ -- 385
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 132
+type$ -- 204
 warning$ -- 3
-while$ -- 45
+while$ -- 82
 width$ -- 0
-write$ -- 203
-(There were 2 error messages)
+write$ -- 225
+(There was 1 error message)

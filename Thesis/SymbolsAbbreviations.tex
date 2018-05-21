@@ -2,11 +2,11 @@
 \begin{multicols}{2}
 \section*{Abbreviations}
 \begin{tabular}{ll}
-HD     & Hydrodynamics             \\
-RHD    & Radiohydrodynamics        \\
+HD     & hydrodynamics             \\
+RHD    & radiohydrodynamics        \\
 LTE    & local thermal equilibrium \\
 CAK    & Castor, Abott and Klein   \\
-FLD    & Flux limited diffusion    \\
+FLD    & flux limited diffusion    \\
 MPI    & message passing interface \\
 AMR    & adaptive mesh refinement  \\
 VAC    & versatile advection code  \\
@@ -69,11 +69,11 @@ $\tau$        & optical depth \\
 
 \section*{CAK and FLD}
 \begin{tabular}{ll}
-$l_{sob}$          & sobolev length \\
+$l_{sob}$          & Sobolev length \\
 $g_{line}$         & line acceleration\\
 $\kappa_e$         & electron opacity \\
-$q$                &   \\
-$t$                &   \\
+$q$                & line quality factor  \\
+%$t$                &   \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $\lambda$          & flux limiter \\
 $l_\gamma$		   & photon mean free path \\
@@ -83,9 +83,9 @@ $D$                & diffusion coefficient\\
 
 \section*{Numerics}
 \begin{tabular}{ll}
-$\Delta x$       & cell width in the $x$-direction\\
+$\Delta x, \Delta y$       & cell width in $x,y$-direction\\
 $\Delta t, dt$	 & time step \\
-$N,M$            & dimension of grid \\
+$N,M$            & dimensions of grid \\
 $\tilde{x}$      & quantity $x$ in dimensionless units \\
 $x_0$		     & the normalised value of quantity $x$ \\
 $x_{i,j}^n$	     & quantity $x$ at timestep $n$ in cell $i,j$ \\

@@ -1,8 +1,8 @@
 \chapter{Results}
-The first result is of course a working CAK subroutine and FLD module in mpi-AMRVAC. This is something that didn't exist before and it will open the way toward simulations of new physical regimes where radiation plays a role in the dynamics of the system. In addition to   designing, writing and benchmarking the software, there are also a few first scientific results. These will be described in this chapter.
+The first result is of course a working CAK subroutine and FLD module in \texttt{MPI-AMRVAC}. This is something that didn't exist before and it will open the way toward simulations of new physical regimes where radiation plays a role in the dynamics of the system. In addition to   designing, writing and benchmarking the software, there are also a few first scientific results. These will be described in this chapter.
 
 \section{CAK-Theory}
-\subsection{Massive star stellar wind}
+\subsection{Massive Star Stellar Wind}
 The CAK momentum equation for a point like star, so when disregarding the finite disk correction factor, has an analytic solution. This solution will be derived below, based on \citep{Owocki2003}, for comparison with the numerical models. Afterwards, the corrections for finite disks will be mentioned. Begin by writing down the steady state momentum equation in 1D spherical coordinates, disregarding the pressure term. The pressure gradient will be orders of magnitude smaller than the gravitational and radiative accelerations due to the low density environment. 
 \begin{align}
 \nabla_r \left(v_r \rho v_r \right) = \rho g_{CAK} + \rho g_{e} - \rho g_{grav}
@@ -11,18 +11,10 @@ Using the steady state continuity equation and the electron scattering Eddington
 \begin{align}
 v \frac{d v}{d r} = g_{CAK} + (\Gamma_e-1) \frac{G M_*}{r^2} \label{eq: CAK_mom}
 \end{align}
-Lets introduce two new variables: $x = 1- \frac{R_*}{r}$ is a dimensionless inverse radius coordinate, and $w = \frac{v^2}{v_{esc}^2}$ is the kinetic energy as ratio of the kinetic energy at effective escape velocity. The effective escape velocity is similar to the general expression for escape velocity, but corrected for electron scattering force: $v_{esc} = \sqrt{(1- \Gamma_e) \frac{2 G M_* }{R_*}}$. Using the notation $w' = \frac{dw}{dx} = \frac{dw}{dr}\frac{dr}{dx}$ and $v' = \frac{dv}{dx} = \frac{dv}{dr} \frac{dr}{dx}$, $w'$ can be written as:
+Lets introduce two new variables: $x = 1- \frac{R_*}{r}$ is a dimensionless inverse radius coordinate, and $w = \frac{v^2}{v_{esc}^2}$ is the kinetic energy as ratio of the kinetic energy at effective escape velocity. The effective escape velocity is similar to the general expression for escape velocity, but corrected for electron scattering force: $v_{esc} = \sqrt{(1- \Gamma_e) \frac{2 G M_* }{R_*}}$. Using the notation $w' = \frac{dw}{dx} = \frac{dw}{dr}\frac{dr}{dx}$ and $v' = \frac{dv}{dx} = \frac{dv}{dr} \frac{dr}{dx}$, equation \eqref{eq: CAK_mom} can be written as:
 \begin{align}
-w' = vv' \frac{r^2}{G M_* (1- \Gamma_e)}
+w' &= C w'^\alpha - 1 \label{eq: CAK_w}
 \end{align}
-Fill in $v\frac{dv}{dr}$ from equation \eqref{eq: CAK_mom}, where $vv' = v \frac{dv}{dr} \frac{dr}{dx} = v \frac{dv}{dr} \frac{r^2}{R_*^2}$:
-\begin{align}
-w' &= v \frac{dv}{dr}  \frac{r^2}{R_*^2} \frac{r^2}{G M_* (1- \Gamma_e)} \\
-   &= \left( g_{CAK} + (\Gamma_e-1) \frac{G M_*}{r^2} \right)  \frac{r^2}{R_*^2} \frac{r^2}{G M_* (1- \Gamma_e)}\\
-   &= C w'^\alpha - 1 \label{eq: CAK_w}
-\end{align}
-
-SOMETHING FISHY WITH $\frac{r^2}{R_*^2}$ HERE\\
 
 Where, if we define the constant mass loss rate $\dot{M} = 4\pi r^2 \rho(r) v(r) = c^{ste}$, C is given by:
 \begin{align}
@@ -40,14 +32,12 @@ Where, when $r\rightarrow\infty$, $v(\infty) \rightarrow v_{esc} \sqrt{\frac{\al
 
 Let's now have a look at some corrections that can be made when considering a finite disk instead of a point source. Define the rescaled correction factor as $f_* = \frac{f_{fd}}{f}$ and the rescaled constant $C_* = C f$, where $f$ is the finite disk correction factor at the stellar surface. At the stellar surface, $r \rightarrow R_*$, $v \rightarrow 0$ and $dv/dr \sim v/r$, plug this in in equation \ref{eq: fin_disk_corr} gives $f_{fd}(R_*) = f \sim \frac{1}{1+\alpha}$. Equation \ref{eq: CAK_w} now rescales to:
 \begin{align}
-w' = f_* C_* (w')^\alpha - 1 
+w' = f_* C_* (w')^\alpha - 1 \label{eq: w_fd}
 \end{align}
 Analogous reasoning as before leads to an adjusted CAK mass loss rate $\dot{M}_{fd}$. This mass loss rate will be lower than the point source mass loss rate, because $f \sim \frac{1}{1+\alpha}  < 1$.
 \begin{align}
-\dot{M}_{fd} = \frac{\dot{M}_{fd}}{(1+\alpha)^\frac{1}{\alpha}}
+\dot{M}_{fd} = \frac{\dot{M}_{CAK}}{(1+\alpha)^\frac{1}{\alpha}}
 \end{align} 
-
-ADJUST PLOTS 'N' STUFF
 
 
 Now that we have testable observables (the steady state CAK mass loss rate $\dot{M}_{CAK}$ and the steady state velocity and density profiles $v(r), \rho(r)$), it is time time to run some simulations and compare the outcomes to the analytical solutions.\\
@@ -78,16 +68,14 @@ $\rho_0[\frac{g}{cm^3}]$ &             & $2.2\cdot 10^{-12}$ &\\
 \hline
 $\beta$                  & $0.5$       & $0.543\pm 0.001$      &  $0.761 \pm 0.001$   \\
 $v_{\infty}/c_{adiab}$   & $45.69$     & $33.14\pm 0.04$       &  $149.4 \pm 0.1$     \\
-$\dot{M}[\frac{M_\odot}{yr}]$ & $4.1 \cdot 10^{-6}$  & $(3.4 \pm 0.4)10^{-7}$&  $(1.8\pm0.2)10^{-7}$ \\           
+$\dot{M}_{CAK}[\frac{M_\odot}{yr}]$ & $4.1 \cdot 10^{-6}$  & $(3.4 \pm 0.4)10^{-7}$&  $(1.8\pm0.2)10^{-7}$ \\           
 \end{tabular}
 \end{table}
 
 
-
-
 The tricky bit in the setup of this simulation is choosing correct lower boundary conditions. The stellar wind is launched from the stellar surface and begins with a subsonic velocity. Computationally this is controlled by setting the lower boundary density $\rho_0$. If the density on the lower bound is too high, the simulation domain begins "too deep" in the stellar atmosphere, the equations become too stiff \citep{Sundqvist2013}. If $\rho_0$ is too low, the simulation domain begins in the supersonic region.\\
 
-As initial condition, the velocity field is taken as a beta velocity law with $\beta > 0.5$, this leads to higher velocity and thus a supercritical solution. The initial density can be derived from the mass los rate: $\rho = \frac{\dot{M}_{CAK}}{4\pi r^2 v}$. The velocity profile should relax towards the critical solution where $\beta = 0.5$ for the point source driven and $\beta = 0.8-1$ \citep{Owocki2003} for the finite disk driven wind.\\
+As initial condition, the velocity field is taken as a beta velocity law with $\beta > 0.5$, this leads to higher velocity and thus a supercritical solution. The initial density can be derived from the mass los rate: $\rho = \frac{\dot{M}_{CAK}}{4\pi r^2 v}$. The velocity profile should relax towards the critical solution where $\beta = 0.5$ for the point source driven wind. For a point source, equation \eqref{eq: CAK_w} is spatialy independent, so a simple analytic integration led us to this simple velocity law. In equation \eqref{eq: w_fd} on the other hand, $f_*$ depends on $r$. Integration isn't simple, but after a few assumptions one can find $\beta = 0.8-1$ and $v_{\infty} \sim v_{esc} C_c f_*^{\frac{1}{2(1-\alpha)}} $ \citep{Owocki2003} for the finite disk driven wind. \\
 
 The lower boundary for the radial velocity is set according to the continuity equation $\nabla (\rho v) = 0$, meaning $v_0 = \frac{\rho_1 v_1}{\rho_0}$. Initial conditions are evolved towards an almost stable, nearly steady state, results of the simulations and their analytical counterparts are plotted in figures \ref{fig: CAK_PS_v} and \ref{fig: CAK_PS_rho}.\\
 
@@ -95,39 +83,38 @@ A beta-velocity law is fitted trough the numerical velocity profile to get the w
 
 \begin{figure}
 \centering
+\begin{subfigure}{.8\textwidth}
 \includegraphics[width = \textwidth]{CAK_velocity_profile.png}
-\caption{The velocity profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}
-\label{fig: CAK_PS_v}
-\end{figure}
-
-\begin{figure}
+\caption{Velocity profile}
+\label{fig: CAK_v}
+\end{subfigure}
+\begin{subfigure}{.8\textwidth}
 \centering
 \includegraphics[width = \textwidth]{CAK_density_profile.png}
-\caption{The density profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}
-\label{fig: CAK_PS_rho}
+\caption{Density profile}
+\label{fig: CAK_rho}
+\end{subfigure}
+\caption{The velocity and density profiles for the point source CAK wind. In a black solid lines the analytical solution with $\beta = 0.5$, in a blue solid line the numerical steady state solution and black in dashed lines the fitted curve trought the numerical solution.}
+\label{•}
 \end{figure}
-
-
-%\begin{figure}
-%\centering
-%\includegraphics[width = \textwidth]{CAK_mass_loss.png}
-%\caption{The mass loss rate profile for the source point like star CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}\label{fig: CAK_PS_M_dot}
-%\end{figure}
 
 When accounting for the finite disk correction, the steady state velocity profile doesn't follow a $\beta = 0.5$ velocity law, results are shown in figures \ref{fig: CAK_PS_v} and \ref{fig: CAK_PS_rho}, the correction factor is plotted in figure \ref{fig: fd_factor}. 
 
 \begin{figure}
 \centering
+\begin{subfigure}{.8\textwidth}
 \includegraphics[width = \textwidth]{CAK_fd_velocity_profile.png}
-\caption{The velocity profile for the finite disk corrected CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}
+\caption{Velocity profile}
 \label{fig: CAK_fd_v}
-\end{figure}
-
-\begin{figure}
+\end{subfigure}
+\begin{subfigure}{.8\textwidth}
 \centering
 \includegraphics[width = \textwidth]{CAK_fd_density_profile.png}
-\caption{The density profile for the finite disk corrected CAK wind. In dashed lines the initial conditions, in green the analytical steady state solution and in blue and red the solutions after 0.5 and 50 times $t = R_*/c_{adiab}$.}
+\caption{Density profile}
 \label{fig: CAK_fd_rho}
+\end{subfigure}
+\caption{The velocity and density profiles for the finite disk corrected overlayed on those for the point source CAK wind.  In a black solid lines the analytical solution with $\beta = 0.5$, in a blue solid line the numerical steady state solution and black in dashed lines the fitted curve trought the numerical solution. The red solid line is the numerical steady state with finite disk and fitted trough this is the green dashed line.}
+\label{•}
 \end{figure}
 %
 %
@@ -140,8 +127,8 @@ When accounting for the finite disk correction, the steady state velocity profil
 
 \begin{figure}
 \centering
-\includegraphics[width = \textwidth]{CAK_fd_factor.png}
-\caption{•}
+\includegraphics[width = 0.8\textwidth]{CAK_fd_factor.png}
+\caption{The finite disc correction factor for the steady state solution and for a $\beta = 0.5$ velocity law.}
 \label{fig: fd_factor}
 \end{figure}
 
@@ -172,19 +159,26 @@ RES^{adv} &= \left|\frac{\tilde{E}^{adv} - E^{adv}}{E^{adv}}\right| \\
 RES^{diff} &= \left|\frac{\tilde{E}^{diff} - E^{diff}}{E^{diff}}\right| 
 \end{align}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.6\textwidth]{InitCond_test.png}
+\caption{The initial conditions radiation energy density for the advection and diffusion test cases.}
+\label{fig: InitCond_test}
+\end{figure}
+
 Which are plotted for different timesteps in figure \ref{fig: test_advection} and \ref{fig: test_diffusion} together with the numerical solutions $\tilde{E}^{adv}$ and $\tilde{E}^{diff}$
 
 
 \begin{figure}
 \includegraphics[width = \textwidth]{visit0001.png}
+\caption{top: theoretical solution $E^{diff}$, middle: computed result $\tilde{E}^{diff}$ and bottom: residual $RES^{diff}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The color scale goes from $1$ (blue) to $3$ (red) for the upper two rows and form $0$ (blue) to $0.01$ (red) for the bottom row.}
 \label{fig: test_diffusion}
-\caption{top: theoretical solution $E^{diff}$, middle: computed result $\tilde{E}^{diff}$ and bottom: residual $RES^{diff}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.01 for the bottom row.}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width = \textwidth]{visit0002.png}
+\caption{top: theoretical solution $E^{adv}$, middle: computed result $\tilde{E}^{adv}$ and bottom: residual $RES^{adv}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.001 for the bottom row.The color scale goes from $1$ (blue) to $3$ (red) for the upper two rows and form $0$ (blue) to $0.001$ (red) for the bottom row.}
 \label{fig: test_advection}
-\caption{top: theoretical solution $E^{adv}$, middle: computed result $\tilde{E}^{adv}$ and bottom: residual $RES^{adv}$. Left: $0.1 t_0$, middle $0.4 t_0$ and right $0.7 t_0$. The scale goes from $1$ to $2$ for the upper two rows and form 0 to 0.001 for the bottom row.}
 \end{figure}
 
 
@@ -201,54 +195,54 @@ The system would be in radiative equilibrium when $c \rho \kappa E = 4 \rho \kap
 \begin{align}
 e_{eq.} = \frac{\rho}{\gamma - 1} \frac{k_b}{m_p \mu}\left( \frac{c E}{4 \sigma} \right)^\frac{1}{4}
 \end{align}
-Different initial conditions are chosen for $e_0$ ranging from $10^2 e_{eq.}$ to $10^{-10} e_{eq.}$. Comparisons between the bisection method and a simple Runge-Kutta solver are plotted in figure \ref{fig: test_sourceterms}. Remember that the implicit bisection method uses a time step which is several orders of magnitude larger than the explicit Runge-Kutta method.
+Different initial conditions are chosen for $e_0$ ranging from $10^2 e_{eq.}$ to $10^{-10} e_{eq.}$. Comparisons between the bisection method and a simple fourth order Runge-Kutta solver are plotted in figure \ref{fig: test_sourceterms} for different initial energy conditions, and in figure \ref{fig: test_sourceterms_dt} for different time steps. Remember that the implicit bisection method uses a time step which is several orders of magnitude larger than the explicit Runge-Kutta method.
 
 \begin{figure}
 \includegraphics[width = \textwidth]{test_sourceterms.png}
+\caption{Comparison between the implicit method in red crosses and explicit method in a black dashed line for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) from different initial values. The time step for the implicit method is 3 orders of magnitude larger than the time step for the explicit method.}
 \label{fig: test_sourceterms}
-\caption{Comparison between the implicit method (red) and explicit method (black) for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) from different initial values. The time step for the implicit method is 3 orders of magnitude larger than the time step for the explicit method.}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width = \textwidth]{test_sourceterms_dt.png}
-\label{fig: test_sourceterms}
-\caption{Comparison between the implicit method (orange, blue, green) and explicit method (black) for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) with different time steps for the implicit method.}
+\caption{Comparison between the implicit method in orange, blue and green dotted lines and explicit method in black dashed lines for computing the radiation heating and cooling sourceterms. The gas energy evolves toward radiative equilibrium (blue) with different time steps for the implicit method.}
+\label{fig: test_sourceterms_dt}
 \end{figure}
 
 \subsection{Isothermal Thomson Atmosphere} \label{section: IsoAtm}
-A first practical use for the FLD module is modelling a stellar atmosphere surrounding a massive star. For convenience, the atmosphere will be considered isothermal and plane parallel, so the flux in the initial condition and the gravitational acceleration are constant. Let's also assume the only absorption an emission is done by means of electron scattering (Thomson atmosphere), with a constant opacity $\kappa$. The model is done in 2D.\\
-
-The initial conditions are crucial in stabilizing simulations. In an isothermal atmosphere, the density and gas pressure decay exponentially on the length of a scale height $H_{eff} = \frac{c_{sound}^2}{g_{eff}}$. Where $g_{eff} = g_{grav}(\Gamma - 1)$ is the sum of radiation and gravitational accelerations. 
+A first practical use for the FLD module is modelling a stellar atmosphere surrounding a massive star. For convenience, the atmosphere will be considered isothermal and plane parallel, so the flux in the initial condition and the gravitational acceleration are constant. Let's also assume the only absorption an emission is done by means of electron scattering (Thomson atmosphere), with a constant opacity $\kappa$. The model is done in 2D. To find suitable initial conditions, which are crucial in stabilizing simulations, lets begin by writing down the hydrostatic equation \eqref{eq: hydrostatic}. In a steady state, when the velocity field is constant, the momentum equations turns to:\\
+\begin{align}
+\frac{dp}{dy} = -g_{eff} \rho \label{eq: hydrostatic}
+\end{align}
+This equation describes a regime where the effective gravitational acceleration ($g_{eff} = g_{grav} - g_{rad} = g_{grav}(1 - \Gamma)$) is countered by the pressure gradient, the velocity field is $\vec{0}$ everywhere. In an isothermal atmosphere, the density and gas pressure decay exponentially on the length of a pressure scale height $H_{eff} = \frac{c_{sound}^2}{g_{eff}}$. 
 \begin{align}
 \rho(y) &= \rho_0 \exp \left( -\frac{y}{H_{eff}} \right) \\
  p(y)   &= p_0    \exp \left( -\frac{y}{H_{eff}} \right)
 \end{align}
 
-The velocity field is $\vec{0}$ everywhere. Boundary conditions $\rho_0$ and $p_0$ can be computed by defining the optical depth $\tau$. 
+Now, the boundary conditions $\rho_0$ and $p_0$ have to be computed. Consider the integrated density from a  spatial coordinate $y'$ until $\infty$ to be the column mass at $y'$: $m_{col}(y') = \int^\infty_{y'} \rho(y) dy$. Filling this in the hydrostatic equation gives an expression for the pressure $p(y')$ at point $y'$.
 \begin{align}
-\tau(y) = \int_\infty^{y} \kappa \rho dy  \label{eq: opt_depth}
+p(y') = -g_{eff} m_{coll}(y')
 \end{align}
-Let $dm = \rho dy$, if this is substituted in \eqref{eq: opt_depth} we get an expression for the column mass in terms of opacity and optical depth:
+An important quantity in the study of stellar atmospheres is the optical depth $\tau$, which can be defined as the length integral over the absorption coefficient $\tau(y') = \int_\infty^{y'} \kappa \rho(y) dy$. Or, making use of the column mass and a constant opacity:
 \begin{align}
-\frac{\tau}{\kappa} = \int_0^{m'} \rho dm
+\tau(y') = -\kappa m_{col}(y') \label{eq: opt_depth}
 \end{align}
-
-
-In a static medium, the gravitational and radiative acceleration of the gas is countered by the gas pressure gradient. Concerning the radiation field, one can make a similar statement . The radiative acceleration is countered by the radiation pressure gradient:
+At any optical depth, the pressure can be written as: 
+\begin{align}
+p = g_{eff}\frac{\tau}{\kappa}
+\end{align}
+So instead of selecting a boundary condition in coordinate-space, a boundary condition is selected by choosing a value $\tau_0$ in optical depth-space. The boundary condition for the gas pressure is set by $p_0 = g_{eff}\frac{\tau_0}{\kappa}$, and using the isothermal speed of sound, the boundary condition for mass density is $\rho_0 = 0/c_{sound}^2$. In a static medium, the gravitational and radiative acceleration of the gas is countered by the gas pressure gradient. Concerning the radiation field, one can make a similar statement. The radiative acceleration is countered by the radiation pressure gradient:
 \begin{align}
 \frac{dp}{dy} \frac{1}{\rho} &= \frac{dp}{dm} = -g_{grav}(1 - \Gamma) \label{eq: p_cond} \\
 \frac{dP}{dy} \frac{1}{\rho} &= \frac{dP}{dm} = -g_{grav} \Gamma \label{eq: P_cond}
 \end{align}
-Manipulating equation \label{eq: p_cond} and substituting the expression for column mass leads to the following relation between optical depth and gas pressure:
+\eqref{eq: P_cond} And \eqref{eq: p_cond} can by divided by one another to get a relation between $dp$ and $dP$. Integrate to find a lower value for the radiation pressure.
 \begin{align}
-\int_0^{p_0} dp &= -g_{grav}(1 - \Gamma) \int_0^{m_0} dm
+dP = \frac{\Gamma}{\Gamma-1} dp \\
+P_0 = \frac{\Gamma}{\Gamma-1} p_0
 \end{align}
-This expression can be integrated towards a value for $p_0$ at a given optical depth $\tau_0$. \eqref{eq: P_cond} And \eqref{eq: p_cond} can by divided by one another to get a relation between $dp$ and $dP$.
-\begin{align}
-p_0 = g_{eff} \frac{\tau_0}{\kappa} \\
-dP = \frac{\Gamma}{\Gamma-1} dp
-\end{align}
-The gas energy density can be set from the gas pressure profile. Because of the plane parallel approximation, $\Gamma$ is constant as well and in the Eddington limit, $E=3P$. Now we have a boundary condition for the radiation energy field as well. The initial conditions are given by:
+The gas energy density can be set from the gas pressure profile. Because of a constant initial flux (the plane parallel approximation) and a constant opacity, $\Gamma$ is constant as well and in the Eddington limit, $E=3P$. Now we have a boundary condition for the radiation energy field as well. The initial conditions are given by:
 \begin{align}
 \rho(y) &= g_{eff} \frac{\tau_0}{\kappa c_{sound}^2} \exp \left( -\frac{y}{H_{eff}} \right) \\
 \rho \vec{v} &= \vec{0} \\
@@ -275,21 +269,18 @@ Eliminating the Eddinton parameter in equations \ref{eq: Gamma1} and \eqref{eq: 
 \begin{align}
 E_i = E_{i+2} + \frac{2 \Delta x}{1 + \frac{3 p_{i+1}}{i+1}}  \frac{g_{grav} \rho_{i+1}}{\lambda_{i+1}}  
 \end{align}
-This expression gives a radiation energy field which leads to a physical flux when calculating it from the closure relation. On the lower boundary, a "no inflow" condition is used. This means that the gradient of the densities is preserved as long as it is smaller than $0$. Periodic boundary conditions are used on the sides. \\ STILL HAVE TO CHECK LAST STATEMENT!!!\\
+This expression gives a radiation energy field which leads to a physical flux when calculating it from the closure relation. On the lower boundary, a "no inflow" condition is used. This means that the gradient of the densities is preserved as long as it is smaller than $0$. Periodic boundary conditions are used on the sides. \\ 
 
 After every time step, the gas energy density is set as function of the gas density and momentum to match the constant temperature structure to keep the atmosphere isothermal. This is done using the inner boundary condition module in \texttt{MPI-AMRVAC}.\\
-
 
 The parameters defining the physics of the system are the Eddington parameter $\Gamma$, the optical depth at the lower boundary $\tau_0$ and the sound speed $c_{sound}$. The Eddington parameter contains information about the mass, luminosity and radius of the star, it determines whether the atmosphere will be blown away, collapsing in on itself or relax in a steady state. $\tau_0$ Sets the physical lower boundary of the numerical domain. A high value means the model starts at in a high density environment near the core, a low value means the model simulates the outermost boundaries of the star. The sound speed determines the temperature of the atmosphere and the velocity at which waves can travel. Together with the Mass which sets the gravitational field, the sound speed also determines the scale height of the gas. \\
 
 Calculations are done on a Cartesian grid, with the y-direction parallel to the radius of the star.The mass of the star is chosen at $M_* = 50 M_\odot$. Using Leavit's law, we get a luminosity for a typical $50M_\odot$ star of $L_* = ... L_\odot$ and an Eddington parameter $\Gamma = ...$. The calculation domain begins at $\tau_0 = ...$ and the grid resolves about $...$ scale heights in the y-direction and $...$ in the x-direction. The resolution of the grid is chosen such that there are $...$ cells per scale height. The simulation stops after $...$ times the hydrodynamical timescale, this is the time needed for a sound wave to travel across the computational domain. 
 
-\subsubsection{constant flux discrepancy}
+\subsection{Strange Mode Instabilities}
 
-\subsection{Strange mode instabilities}
-
-\subsection{Non-isothermal evolution?}
+\subsection{Non-Isothermal Evolution}
 This section describes the result of evolving the initial conditions described in section \ref{section: IsoAtm} without the isothermal conditions. So now, also the radiation heating and cooling source terms are taken into account for the gas energy equation. Snapshots in the simulation are compared visually to snapshot from the isothermal atmosphere.
 
-\subsubsection{comparison to mesa structure}
+\subsubsection{Comparison to Mesa Structure}
 
