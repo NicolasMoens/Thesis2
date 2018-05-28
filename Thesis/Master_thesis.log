@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.21)  21 MAY 2018 04:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.21)  28 MAY 2018 22:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -479,7 +479,17 @@ File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 
 ] [2
 
-]) (./SymbolsAbbreviations.tex [3
+]
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+) (./SymbolsAbbreviations.tex [3
 
 ]
 Overfull \hbox (67.39276pt too wide) in paragraph at lines 46--69
@@ -498,26 +508,35 @@ Overfull \hbox (19.06903pt too wide) in paragraph at lines 85--93
 
 [4
 
-]) [5] (./Master_thesis.lof)
+]) [5] (./Master_thesis.lof
+
+Package natbib Warning: Citation `Grevesse1993' on page vi undefined on input l
+ine 14.
+
+
+Package natbib Warning: Citation `Owocki2014' on page vi undefined on input lin
+e 14.
+
+[6
+
+])
 \tf@lof=\write3
 \openout3 = `Master_thesis.lof'.
 
- [6
-
-] (./Master_thesis.lot)
+ [7] (./Master_thesis.lot)
 \tf@lot=\write4
 \openout4 = `Master_thesis.lot'.
 
- [7
+ [8
 
-]
-(./Master_thesis.toc)
+] (./Master_thesis.toc)
 \tf@toc=\write5
 \openout5 = `Master_thesis.toc'.
 
- [8
+ [9
 
-] (./Introduction.tex
+] [10]
+(./Introduction.tex
 Chapter 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -712,7 +731,7 @@ See the caption package documentation for explanation.
 LaTeX Warning: Reference `fig: ADI_stencil' on page 18 undefined on input line 
 154.
 
-<ADI-stencil.png, id=111, 513.92pt x 466.74374pt>
+<ADI-stencil.png, id=117, 513.92pt x 466.74374pt>
 File: ADI-stencil.png Graphic file (type png)
  <use ADI-stencil.png>
 Package pdftex.def Info: ADI-stencil.png used on input line 157.
@@ -783,14 +802,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
-<CAK_velocity_profile.png, id=138, 462.528pt x 346.896pt>
+<CAK_velocity_profile.png, id=145, 462.528pt x 346.896pt>
 File: CAK_velocity_profile.png Graphic file (type png)
 
 <use CAK_velocity_profile.png>
 Package pdftex.def Info: CAK_velocity_profile.png used on input line 87.
 (pdftex.def)             Requested size: 364.19664pt x 273.16086pt.
 
-<CAK_density_profile.png, id=139, 462.528pt x 346.896pt>
+<CAK_density_profile.png, id=146, 462.528pt x 346.896pt>
 File: CAK_density_profile.png Graphic file (type png)
 
 <use CAK_density_profile.png>
@@ -805,21 +824,21 @@ LaTeX Warning: Reference `fig: CAK_PS_v' on page 26 undefined on input line 101
 LaTeX Warning: Reference `fig: CAK_PS_rho' on page 26 undefined on input line 1
 01.
 
-<CAK_fd_velocity_profile.png, id=140, 462.528pt x 346.896pt>
+<CAK_fd_velocity_profile.png, id=147, 462.528pt x 346.896pt>
 File: CAK_fd_velocity_profile.png Graphic file (type png)
 
 <use CAK_fd_velocity_profile.png>
 Package pdftex.def Info: CAK_fd_velocity_profile.png used on input line 106.
 (pdftex.def)             Requested size: 364.19664pt x 273.16086pt.
 
-<CAK_fd_density_profile.png, id=141, 462.528pt x 346.896pt>
+<CAK_fd_density_profile.png, id=148, 462.528pt x 346.896pt>
 File: CAK_fd_density_profile.png Graphic file (type png)
 
 <use CAK_fd_density_profile.png>
 Package pdftex.def Info: CAK_fd_density_profile.png used on input line 112.
 (pdftex.def)             Requested size: 364.19664pt x 273.16086pt.
 
-<CAK_fd_factor.png, id=142, 462.528pt x 346.896pt>
+<CAK_fd_factor.png, id=149, 462.528pt x 346.896pt>
 File: CAK_fd_factor.png Graphic file (type png)
  <use CAK_fd_factor.png>
 Package pdftex.def Info: CAK_fd_factor.png used on input line 130.
@@ -827,19 +846,19 @@ Package pdftex.def Info: CAK_fd_factor.png used on input line 130.
 
 [26] [27 <./CAK_velocity_profile.png> <./CAK_density_profile.png>] [28 <./CAK_f
 d_velocity_profile.png> <./CAK_fd_density_profile.png>] [29 <./CAK_fd_factor.pn
-g>] <InitCond_test.png, id=162, 1027.84pt x 967.615pt>
+g>] <InitCond_test.png, id=168, 1027.84pt x 967.615pt>
 File: InitCond_test.png Graphic file (type png)
  <use InitCond_test.png>
 Package pdftex.def Info: InitCond_test.png used on input line 164.
 (pdftex.def)             Requested size: 273.14922pt x 257.14023pt.
 
-<visit0001.png, id=163, 1026.83624pt x 1026.83624pt>
+<visit0001.png, id=169, 1026.83624pt x 1026.83624pt>
 File: visit0001.png Graphic file (type png)
  <use visit0001.png>
 Package pdftex.def Info: visit0001.png used on input line 173.
 (pdftex.def)             Requested size: 455.24408pt x 455.24069pt.
 
-<visit0002.png, id=164, 1026.83624pt x 1026.83624pt>
+<visit0002.png, id=170, 1026.83624pt x 1026.83624pt>
 File: visit0002.png Graphic file (type png)
  <use visit0002.png>
 Package pdftex.def Info: visit0002.png used on input line 179.
@@ -851,14 +870,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--193
 
  []
 
-<test_sourceterms.png, id=174, 462.528pt x 346.896pt>
+<test_sourceterms.png, id=181, 462.528pt x 346.896pt>
 File: test_sourceterms.png Graphic file (type png)
 
 <use test_sourceterms.png>
 Package pdftex.def Info: test_sourceterms.png used on input line 201.
 (pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
 
-<test_sourceterms_dt.png, id=175, 462.528pt x 346.896pt>
+<test_sourceterms_dt.png, id=182, 462.528pt x 346.896pt>
 File: test_sourceterms_dt.png Graphic file (type png)
 
 <use test_sourceterms_dt.png>
@@ -884,21 +903,89 @@ Underfull \hbox (badness 10000) in paragraph at lines 276--277
 
  []
 
-[37]) [38] (./Conclusions.tex
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
+
+ []
+
+
+Package natbib Warning: Citation `Iglesias1996' on page 38 undefined on input l
+ine 281.
+
+
+Package natbib Warning: Citation `Carroll1996' on page 38 undefined on input li
+ne 284.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
+
+ []
+
+
+Package natbib Warning: Citation `Owocki2014' on page 38 undefined on input lin
+e 291.
+
+
+Package natbib Warning: Citation `Petrovic2006' on page 38 undefined on input l
+ine 291.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
+
+ []
+
+[38] <opacity_bump.png, id=205, 716.6775pt x 367.3725pt>
+File: opacity_bump.png Graphic file (type png)
+
+<use opacity_bump.png>
+Package pdftex.def Info: opacity_bump.png used on input line 311.
+(pdftex.def)             Requested size: 455.24408pt x 233.363pt.
+
+
+Package natbib Warning: Citation `Grevesse1993' on page 39 undefined on input l
+ine 312.
+
+
+Package natbib Warning: Citation `Owocki2014' on page 39 undefined on input lin
+e 312.
+
+
+Package natbib Warning: Citation `Grevesse1993' on page 39 undefined on input l
+ine 312.
+
+
+Package natbib Warning: Citation `Owocki2014' on page 39 undefined on input lin
+e 312.
+
+<Opacities.png, id=206, 462.528pt x 346.896pt>
+File: Opacities.png Graphic file (type png)
+ <use Opacities.png>
+Package pdftex.def Info: Opacities.png used on input line 318.
+(pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
+
+
+Package natbib Warning: Citation `Blaes2003' on page 39 undefined on input line
+ 325.
+
+
+Package natbib Warning: Citation `Owocki2014' on page 39 undefined on input lin
+e 325.
+
+) [39] (./Conclusions.tex [40 <./opacity_bump.png>] [41 <./Opacities.png>]
 Chapter 4.
-) [39
+) [42
 
 ] (./FutureWork.tex
 Chapter 5.
-) [40
+) [43
 
-] (./Master_thesis.bbl [41
+] (./Master_thesis.bbl [44
 
-]) [42]
+]) [45]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <7> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 203.
 
-<sedes.png, id=211, 402.5439pt x 683.6742pt>
+<sedes.png, id=231, 402.5439pt x 683.6742pt>
 File: sedes.png Graphic file (type png)
  <use sedes.png>
 Package pdftex.def Info: sedes.png used on input line 213.
@@ -911,7 +998,7 @@ Overfull \hbox (18.18004pt too wide) in paragraph at lines 217--218
 
 Package natbib Warning: There were undefined citations.
 
-[43 <./sedes.png>] (./Master_thesis.aux)
+[46 <./sedes.png>] (./Master_thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -920,10 +1007,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6112 strings out of 494910
- 92129 string characters out of 6179836
- 215389 words of memory out of 5000000
- 9264 multiletter control sequences out of 15000+600000
+ 6131 strings out of 494910
+ 92431 string characters out of 6179836
+ 215525 words of memory out of 5000000
+ 9281 multiletter control sequences out of 15000+600000
  23790 words of font info for 54 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  38i,17n,43p,9106b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -931,24 +1018,25 @@ Here is how much of TeX's memory you used:
 hare/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/h
-elvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Master_thesis.pdf (53 pages, 835405 bytes).
+pe1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
+vetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on Master_thesis.pdf (58 pages, 992635 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 304 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 

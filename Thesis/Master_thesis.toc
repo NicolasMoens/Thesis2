@@ -23,13 +23,13 @@
 \contentsline {subsection}{\numberline {3.2.1}Testcase 1: Advection and Diffusion}{29}
 \contentsline {subsection}{\numberline {3.2.2}Testcase 2: Photon Tiring, Heating and Cooling}{33}
 \contentsline {subsection}{\numberline {3.2.3}Isothermal Thomson Atmosphere}{33}
-\contentsline {subsection}{\numberline {3.2.4}Strange Mode Instabilities}{38}
-\contentsline {subsection}{\numberline {3.2.5}Non-Isothermal Evolution}{38}
-\contentsline {subsubsection}{Comparison to Mesa Structure}{38}
-\contentsline {chapter}{\numberline {4}Conclusions}{39}
-\contentsline {chapter}{\numberline {5}Future Work}{40}
-\contentsline {section}{\numberline {5.1}Alternative Implicit Schemes}{40}
-\contentsline {section}{\numberline {5.2}MPI}{40}
-\contentsline {section}{\numberline {5.3}AMR}{40}
-\contentsline {section}{\numberline {5.4}Non-Isothermal atmospheres}{40}
-\contentsline {section}{\numberline {5.5}Super Eddinton Limit}{40}
+\contentsline {subsection}{\numberline {3.2.4}Kramers' opacity and opacity bump}{38}
+\contentsline {subsection}{\numberline {3.2.5}Strange Mode Instabilities}{39}
+\contentsline {subsection}{\numberline {3.2.6}Non-Isothermal Evolution}{39}
+\contentsline {chapter}{\numberline {4}Conclusions}{42}
+\contentsline {chapter}{\numberline {5}Future Work}{43}
+\contentsline {section}{\numberline {5.1}Alternative Implicit Schemes}{43}
+\contentsline {section}{\numberline {5.2}MPI}{43}
+\contentsline {section}{\numberline {5.3}AMR}{43}
+\contentsline {section}{\numberline {5.4}Non-Isothermal atmospheres}{43}
+\contentsline {section}{\numberline {5.5}Super Eddinton Limit}{43}

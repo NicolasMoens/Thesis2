@@ -260,9 +260,9 @@ For the radiation energy it is not only important that $E$ has the correct value
 E_{i+1} &= \frac{3 \Gamma_{i+1}}{1-\Gamma_{i+1}}_{i+1} \\
 \Gamma_{i+1} &= \frac{1}{1 + \frac{3 p_{i+1}}{i+1}} \label{eq: Gamma1}
 \end{align}
-Using the defenition of the Eddington parameter $\Gamma_{i+1} = \frac{\kappa F_{y,i+1}}{c g_{grav}}$ and a discrete form of the fld closure relation equation \eqref{eq: fld_closing} $F_{i+1} = -\frac{c \lambda_{i+1}}{\kappa \rho_{i+1}} \frac{E_{i+2} + E_{i}}{2 \Delta x}$ one can write down another expression for $\Gamma$:
+Using the defenition of the Eddington parameter $\Gamma_{i+1} = \frac{\kappa F_{y,i+1}}{c g_{grav}}$ and a discrete form of the fld closure relation equation \eqref{eq: fld_closing} $F_{i+1} = -\frac{c \lambda_{i+1}}{\kappa \rho_{i+1}} \frac{E_{i+2} + E_{i}}{2 \Delta y}$ one can write down another expression for $\Gamma$:
 \begin{align}
-\Gamma_{i+1} = \frac{\lambda_{i+1}}{g_{grav}\rho_{i+1}}\frac{E_i + E_{i+2}}{2 \Delta x} \label{eq: Gamma2}
+\Gamma_{i+1} = \frac{\lambda_{i+1}}{g_{grav}\rho_{i+1}}\frac{E_i + E_{i+2}}{2 \Delta y} \label{eq: Gamma2}
 \end{align}
 
 Eliminating the Eddinton parameter in equations \ref{eq: Gamma1} and \eqref{eq: Gamma2} makes it possible to give an elegant expression for $E_i$:
@@ -275,12 +275,58 @@ After every time step, the gas energy density is set as function of the gas dens
 
 The parameters defining the physics of the system are the Eddington parameter $\Gamma$, the optical depth at the lower boundary $\tau_0$ and the sound speed $c_{sound}$. The Eddington parameter contains information about the mass, luminosity and radius of the star, it determines whether the atmosphere will be blown away, collapsing in on itself or relax in a steady state. $\tau_0$ Sets the physical lower boundary of the numerical domain. A high value means the model starts at in a high density environment near the core, a low value means the model simulates the outermost boundaries of the star. The sound speed determines the temperature of the atmosphere and the velocity at which waves can travel. Together with the Mass which sets the gravitational field, the sound speed also determines the scale height of the gas. \\
 
-Calculations are done on a Cartesian grid, with the y-direction parallel to the radius of the star.The mass of the star is chosen at $M_* = 50 M_\odot$. Using Leavit's law, we get a luminosity for a typical $50M_\odot$ star of $L_* = ... L_\odot$ and an Eddington parameter $\Gamma = ...$. The calculation domain begins at $\tau_0 = ...$ and the grid resolves about $...$ scale heights in the y-direction and $...$ in the x-direction. The resolution of the grid is chosen such that there are $...$ cells per scale height. The simulation stops after $...$ times the hydrodynamical timescale, this is the time needed for a sound wave to travel across the computational domain. 
+Calculations are done on a Cartesian grid, with the y-direction parallel to the radius of the star. The mass of the star is chosen at $M_* = 150 M_\odot$. Using Leavit's law, we get a luminosity for a typical $50M_\odot$ star of $L_* = 3.375 \cdot 10^{6} L_\odot$ and an Eddington parameter $\Gamma = 0.58$. The calculation domain begins at $\tau_0 = 100$ and the grid resolves about $4$ scale heights in the y-direction and $2$ in the x-direction. The resolution of the grid is chosen such that there are $10$ cells per scale height. The simulation stops after $5$ times the hydrodynamical timescale, this is the time needed for a sound wave to travel across the pressure scale height. This is more than enough time for waves to cross the entire numerical domain. In the initial conditions, a random perturbation is applied to the density of about $5 \%$.\\  
+
+\subsection{Kramers' opacity and opacity bump}
+As a first approximation, the mean opacity was assumed to be constant as function of temperature and density. In reality however, this is not the case. Numerous research groups have invested time in calculating mean opacities in different regimes, the OPAL project \citep{Iglesias1996} being one of them. In future work, one could implement a subroutine that calls value form the OPAL opacity tables. For now, two simplified cases are implemented and their effect tested on the evolution of the atmosphere: Kramers' opacity law and an opacity bump.
+
+\begin{itemize}
+\item \textbf{Kramers' opacity law:} Already in 1923, Dutch physicist Hendrik Kramers derived a parametrised expression for free-free or bound-free dominated regimes \citep{Carroll1996}:
+\begin{align}
+\kappa(\rho,T) = \kappa_0 \frac{\rho}{\rho_0} \left(\frac{T}{T_0}\right)^{-\frac{7}{2}}
+\end{align}
+A similar opacity law is implemented, where $\kappa$ and $\rho_0$ are chosen in such a way that the entire simulation domain starts of sub-Eddington ($\Gamma < 1$). For the isothermal wind, $T = constant$, and is thus not relevant for the calculations. $T_0$ is set to the atmospheric temperature. \\
+
+
+\item \textbf{Opacity bump:} When considering OPAL opacities at massive star stellar atmosphere conditions, a prominent feature is the \emph{Iron opacity bump} \citep{Owocki2014} (fig: \ref{fig: opacity_bump}). The opacity increases and decreases  as a function of temperature, especially for at high densities. This is due to the number of absorption lines in iron after being ionised at about $2 \cdot 10^5 K$. In the atmospheres of massive, near Eddington limit stars, this opacity bump results in a local rise of opacity and thus a local super Eddington region. This in turn can lead to a density inversion and possibly the inflation of stellar atmospheres and the driving of stellar winds \citep{Petrovic2006}.\\
+
+A similar feature is imitated in the code by adding a Gaussian form in $y-space$ to the opacity:
+\begin{align}
+\kappa(y) = \kappa_0 + a_b e^{-\left(\frac{y-y_0}{\sigma}\right)^2} \label{eq: gauss_y}
+\end{align}
+Of course, the opacity should depend on $\rho$ instead of $y$, because an opacity depending on the position vector doesn't really make physical sense. Remember that in the initial conditions, $\rho(y) = e^{\frac{-y}{H_{eff}}}$. Invert this to $y(\rho) = -H_{eff}\ln(\rho)$ and fill in in equation \eqref{eq: gauss_y}.
+
+\begin{align}
+\kappa(\rho) = \kappa_0 \left(1 + a_{b} e^{-\left( \frac{H_{eff}}{\sigma} \ln\left( \frac{\rho_0}{\rho} \right)\right)^2} \right)
+\end{align}
+
+where $\rho_{b}$ is chosen in such a way to choose the location of the opacity bump and $a_{b}$ to set the height of the bump. Note that this Gaussian is very artificial, it is only a qualitative description of the opacity bump as it goes up and down with density. This allows for a local super-Eddington region.
+\end{itemize}
+
+Figure \ref{fig: op} depicts the opacities along the $y$-direction of the numerical grid on the initial conditions of the isothermal atmosphere. Due to the initial perturbation in density, these have to be averaged over in the $x$-direction. In the following section, we will look at the effects of the different opacity laws on the evolution of the isothermal atmosphere. But first a little bit of theory on what effect the different mean opacities  are expected to have on perturbations.
+
+
+
+\begin{figure}
+\includegraphics[width = \textwidth]{opacity_bump.png}
+\caption{Left: OPAL opacities as function of temperature. Right: Radiative pressure as function of gas pressure. $\rho \sim P_{gas}$ so a relatively high density in the top right and a relatively low density in the top left corner of the figure. Figures based on \citep{Grevesse1993}, taken from \citep{Owocki2014}}
+\label{fig: opacity_bump}
+\end{figure}
+
+
+\begin{figure}
+\includegraphics[width = \textwidth]{Opacities.png}
+\caption{Opacities and Eddington factors for different opacity models in an isothermal atmosphere, averaged  over the $x$-direction.}
+\label{fig: op}
+\end{figure}
+
 
 \subsection{Strange Mode Instabilities}
+Based on \citep{Blaes2003} and \citep{Owocki2014}, a perturbation-analysis is done on the equations describing an isothermal atmosphere. Let's start with a simplified system of equations:
+
 
 \subsection{Non-Isothermal Evolution}
 This section describes the result of evolving the initial conditions described in section \ref{section: IsoAtm} without the isothermal conditions. So now, also the radiation heating and cooling source terms are taken into account for the gas energy equation. Snapshots in the simulation are compared visually to snapshot from the isothermal atmosphere.
 
-\subsubsection{Comparison to Mesa Structure}
+%\subsubsection{Comparison to Mesa Structure}
 
